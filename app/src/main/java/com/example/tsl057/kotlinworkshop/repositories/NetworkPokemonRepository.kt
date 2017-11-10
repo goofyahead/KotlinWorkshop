@@ -5,7 +5,7 @@ import com.example.tsl057.kotlinworkshop.models.Pokemon
 
 class NetworkPokemonRepository : PokemonRepository {
 
-    override fun getAllPokemons(): List<Pokemon> {
+    override fun getAllPokemons(): List<Pokemon?> {
         val bulbasur = Pokemon(
                 "bulbasur",
                 "https://cdn.bulbagarden.net/upload/thumb/2/21/001Bulbasaur.png/250px-001Bulbasaur.png",
@@ -24,6 +24,12 @@ class NetworkPokemonRepository : PokemonRepository {
                 listOf("fire", "flying") ,
                 2,
                 32)
-        return listOf(bulbasur, pikachu, charmander)
+        val unknownPokemon = Pokemon(
+                null,
+                null,
+                null ,
+                10,
+                22)
+        return listOf(bulbasur, pikachu, charmander, unknownPokemon, null)
     }
 }

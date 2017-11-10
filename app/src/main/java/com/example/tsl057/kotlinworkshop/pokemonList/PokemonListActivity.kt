@@ -22,7 +22,7 @@ class PokemonListActivity : AppCompatActivity(), AnkoLogger {
         presenter.loadPokemons({onPokemonsReady(it)})
     }
 
-    fun onPokemonsReady(pokemons: List<Pokemon>) {
+    fun onPokemonsReady(pokemons: List<Pokemon?>) {
         pokedexList.layoutManager = LinearLayoutManager(this)
         pokedexList.adapter = PokemonAdapter(pokemons,{onPokemonClicked(it)})
     }
