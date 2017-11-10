@@ -6,7 +6,7 @@
     tools:context="com.example.tsl057.kotlinworkshop.pokemonList.PokemonListActivity">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/pokedex_list"
+        android:id="@+id/pokedexList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
