@@ -24,6 +24,7 @@ allprojects {
 
 ext {
     support_lib_version = '26.1.0'
+    anko_version = '0.10.2'
 }
 
 

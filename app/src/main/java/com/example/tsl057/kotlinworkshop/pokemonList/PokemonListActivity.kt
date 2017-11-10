@@ -4,11 +4,15 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import com.example.tsl057.kotlinworkshop.R
+import com.example.tsl057.kotlinworkshop.extensions.md5
+import com.example.tsl057.kotlinworkshop.extensions.showMessage
 import com.example.tsl057.kotlinworkshop.models.Pokemon
 import com.example.tsl057.kotlinworkshop.repositories.NetworkPokemonRepository
 import kotlinx.android.synthetic.main.activity_pokemon_list.*
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.info
 
-class PokemonListActivity : AppCompatActivity() {
+class PokemonListActivity : AppCompatActivity(), AnkoLogger {
 
     private val presenter = PokemonListPresenter(NetworkPokemonRepository())
 
@@ -24,6 +28,7 @@ class PokemonListActivity : AppCompatActivity() {
     }
 
     fun onPokemonClicked(pokemon: Pokemon){
-        TODO("not implemented yet")
+        this.showMessage("Clicked on ${pokemon.name}")
+        info("md5 of this pokemon is ${pokemon.toString().md5()}")
     }
 }
