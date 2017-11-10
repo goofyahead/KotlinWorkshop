@@ -8,7 +8,7 @@ class PokemonListPresenter(
         private val pokemonRepository: PokemonRepository)
     : PokemonListContract.Presenter {
 
-    override fun loadPokemons(callback: (List<Pokemon?>) -> Unit) {
+    override fun loadPokemons(callback: (List<Pokemon>) -> Unit) {
         callback(pokemonRepository.getAllPokemons().filterNotNull())
     }
 }

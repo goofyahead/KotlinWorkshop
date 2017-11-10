@@ -9,7 +9,7 @@ import com.example.tsl057.kotlinworkshop.models.Pokemon
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.pokemon_item.view.*
 
-class PokemonAdapter(private val pokemonList: List<Pokemon?>,
+class PokemonAdapter(private val pokemonList: List<Pokemon>,
                      private val itemClick: (Pokemon) -> Unit)
     : RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
 
@@ -23,17 +23,16 @@ class PokemonAdapter(private val pokemonList: List<Pokemon?>,
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        pokemonList[position]?.let { holder.bindPokemon(it) }
+        holder.bindPokemon(pokemonList[position])
     }
 
-    class ViewHolder(view: View,
-                     private val itemClick: (Pokemon) -> Unit)
+    class ViewHolder(view: View, private val itemClick: (Pokemon) -> Unit)
         : RecyclerView.ViewHolder(view) {
 
         fun bindPokemon(pokemon: Pokemon) {
             with(pokemon) {
                 Picasso.with(itemView.context)
-                        .load(picture ?: "https://www.edmontoncorporatechallenge.com/Sports%20Icons/unknown-challenge.png" )
+                        .load(picture)
                         .into(itemView.pokemonImage)
                 itemView.pokemonName.text = name ?: "unknown"
                 itemView.pokemonWeight.text = weight.toString()

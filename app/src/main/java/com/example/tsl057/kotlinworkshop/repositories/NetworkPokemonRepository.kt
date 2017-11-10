@@ -25,11 +25,23 @@ class NetworkPokemonRepository : PokemonRepository {
                 2,
                 32)
         val unknownPokemon = Pokemon(
-                null,
-                null,
-                null ,
-                10,
-                22)
-        return listOf(bulbasur, pikachu, charmander, unknownPokemon, null)
+                name = null,
+                types = null,
+                weight = 10,
+                height = 22)
+        val charizard = Pokemon(
+                "charizard",
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
+                listOf("fire") ,
+                12,
+                40)
+        val pidgeoto = Pokemon(
+                "pidgeotto",
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/17.png",
+                listOf("flying") ,
+                3,
+                2)
+
+        return listOf(bulbasur, pikachu, charmander, unknownPokemon, null, charizard, pidgeoto)
     }
 }

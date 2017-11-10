@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">KotlinWorkshop</string>
+    <string name="fire">fire</string>
+    <string name="electric">electric</string>
+    <string name="flying">flying</string>
+    <string name="all">all</string>
 </resources>
