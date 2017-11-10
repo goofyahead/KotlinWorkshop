@@ -11,7 +11,9 @@ import com.example.tsl057.kotlinworkshop.extensions.showMessage
 import com.example.tsl057.kotlinworkshop.models.Pokemon
 import com.example.tsl057.kotlinworkshop.repositories.NetworkPokemonRepository
 import kotlinx.android.synthetic.main.activity_pokemon_list.*
+import kotlinx.coroutines.experimental.Deferred
 import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.coroutines.experimental.bg
 import org.jetbrains.anko.info
 
 
@@ -27,6 +29,14 @@ class PokemonListActivity : AppCompatActivity(), AnkoLogger {
     }
 
     fun onPokemonsReady(pokemons: List<Pokemon>) {
+
+        bg {
+            // Runs in background
+            info("so tired....")
+            Thread.sleep(2000)
+            info("waking up!")
+        }
+
         pokedexList.layoutManager = LinearLayoutManager(this)
         pokedexList.adapter = PokemonAdapter(pokemons.filter(filterFunction), { onPokemonClicked(it) })
     }
@@ -34,6 +44,7 @@ class PokemonListActivity : AppCompatActivity(), AnkoLogger {
     fun onPokemonClicked(pokemon: Pokemon) {
         this.showMessage("Clicked on ${pokemon.name}")
         info("md5 of this pokemon is ${pokemon.toString().md5()}")
+        info(pokemon)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
