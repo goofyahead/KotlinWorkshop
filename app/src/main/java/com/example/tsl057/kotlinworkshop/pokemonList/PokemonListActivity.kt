@@ -9,11 +9,10 @@ import com.example.tsl057.kotlinworkshop.R
 import com.example.tsl057.kotlinworkshop.extensions.md5
 import com.example.tsl057.kotlinworkshop.extensions.showMessage
 import com.example.tsl057.kotlinworkshop.models.Pokemon
+import com.example.tsl057.kotlinworkshop.models.PokemonType
 import com.example.tsl057.kotlinworkshop.repositories.NetworkPokemonRepository
 import kotlinx.android.synthetic.main.activity_pokemon_list.*
-import kotlinx.coroutines.experimental.Deferred
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.coroutines.experimental.bg
 import org.jetbrains.anko.info
 
 
@@ -29,14 +28,6 @@ class PokemonListActivity : AppCompatActivity(), AnkoLogger {
     }
 
     fun onPokemonsReady(pokemons: List<Pokemon>) {
-
-        bg {
-            // Runs in background
-            info("so tired....")
-            Thread.sleep(2000)
-            info("waking up!")
-        }
-
         pokedexList.layoutManager = LinearLayoutManager(this)
         pokedexList.adapter = PokemonAdapter(pokemons.filter(filterFunction), { onPokemonClicked(it) })
     }
@@ -45,6 +36,7 @@ class PokemonListActivity : AppCompatActivity(), AnkoLogger {
         this.showMessage("Clicked on ${pokemon.name}")
         info("md5 of this pokemon is ${pokemon.toString().md5()}")
         info(pokemon)
+        pokemon.attack(pokemon)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -55,11 +47,11 @@ class PokemonListActivity : AppCompatActivity(), AnkoLogger {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         filterFunction = when (item.itemId) {
-            R.id.electric -> { pokemon: Pokemon -> pokemon.types?.contains("electric") ?: false }
+            R.id.electric -> { pokemon: Pokemon -> pokemon.types?.contains(PokemonType.ELECTRIC) ?: false }
 
-            R.id.fire -> { pokemon: Pokemon -> pokemon.types?.contains("fire") ?: false }
+            R.id.fire -> { pokemon: Pokemon -> pokemon.types?.contains(PokemonType.FIRE) ?: false }
 
-            R.id.flying -> { pokemon: Pokemon -> pokemon.types?.contains("flying") ?: false }
+            R.id.flying -> { pokemon: Pokemon -> pokemon.types?.contains(PokemonType.FLIYING) ?: false }
 
             else -> { pokemon: Pokemon -> true }
         }
