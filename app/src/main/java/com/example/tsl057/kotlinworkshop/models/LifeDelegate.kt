@@ -1,14 +1,15 @@
 package com.example.tsl057.kotlinworkshop.models
 
+import java.io.Serializable
 import kotlin.reflect.KProperty
 
-class LifeDelegate {
+class LifeDelegate : Serializable {
 
-    operator fun getValue(thisRef: Any?, property: KProperty<*>): Int {
-        return 30
+    operator fun getValue(pokemon: Pokemon, property: KProperty<*>): Int {
+        return 20
     }
 
-    operator fun setValue(thisRef: Any?, property: KProperty<*>, value: Int) {
-        println("$value has been assigned to '${property.name} in $thisRef.'")
+    operator fun setValue(pokemon: Pokemon, property: KProperty<*>, value: Int) {
+        println("$value has been assigned to '${property.name} in ${pokemon.name}.'")
     }
 }

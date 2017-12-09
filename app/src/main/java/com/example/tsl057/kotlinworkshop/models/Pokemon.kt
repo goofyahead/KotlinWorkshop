@@ -1,5 +1,7 @@
 package com.example.tsl057.kotlinworkshop.models
 
+import java.io.Serializable
+
 enum class PokemonType { GRASS, POISON, FIRE, ELECTRIC, FLIYING }
 
 data class Pokemon(
@@ -8,7 +10,7 @@ data class Pokemon(
         val types: List<PokemonType>?,
         val weight: Int,
         val height: Int,
-        val attack: Atacker = BasicAttack()) : Atacker by attack {
+        val attack: Attacker = BasicAttack()) : Attacker by attack, Serializable {
 
     var lifePoints by LifeDelegate()
 

@@ -4,9 +4,8 @@ import com.example.tsl057.kotlinworkshop.models.PokemonType.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 
-class ElectricAttack : Atacker, AnkoLogger {
+class ElectricAttack : Attacker, AnkoLogger {
     private var damage: Int = 10
-
     override fun attack(pokemon: Pokemon) {
         pokemon.types?.map {
             damage = when (it) {

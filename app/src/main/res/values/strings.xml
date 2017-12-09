@@ -4,4 +4,6 @@
     <string name="electric">electric</string>
     <string name="flying">flying</string>
     <string name="all">all</string>
+    <string name="title_activity_pokemon_battle">PokemonBattle</string>
+    <string name="aWildRattata">A wild rattata appeared!</string>
 </resources>

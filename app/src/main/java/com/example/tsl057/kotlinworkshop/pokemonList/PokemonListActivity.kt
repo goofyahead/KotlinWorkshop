@@ -1,5 +1,7 @@
 package com.example.tsl057.kotlinworkshop.pokemonList
 
+import android.app.Activity
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -36,7 +38,10 @@ class PokemonListActivity : AppCompatActivity(), AnkoLogger {
         this.showMessage("Clicked on ${pokemon.name}")
         info("md5 of this pokemon is ${pokemon.toString().md5()}")
         info(pokemon)
-        pokemon.attack(pokemon)
+        intent = Intent()
+        intent.putExtra("POKEMON", pokemon)
+        setResult(Activity.RESULT_OK, intent)
+        finish()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -36,13 +36,13 @@ class NetworkPokemonRepository : PokemonRepository {
                 height = 22)
         val charizard = Pokemon(
                 "charizard",
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
+                "https://cdn.bulbagarden.net/upload/thumb/7/7e/006Charizard.png/250px-006Charizard.png",
                 listOf(PokemonType.FIRE) ,
                 12,
                 40)
         val pidgeoto = Pokemon(
                 "pidgeotto",
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/17.png",
+                "https://cdn.bulbagarden.net/upload/thumb/5/57/018Pidgeot.png/250px-018Pidgeot.png",
                 listOf(PokemonType.FLIYING) ,
                 3,
                 2)

@@ -1,5 +1,7 @@
 package com.example.tsl057.kotlinworkshop.models
 
-interface Atacker {
+import java.io.Serializable
+
+interface Attacker : Serializable{
     fun attack(pokemon: Pokemon)
 }
